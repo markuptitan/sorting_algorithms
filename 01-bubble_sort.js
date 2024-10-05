@@ -1,23 +1,19 @@
 const bubbleSort = (array) => {
   const arrayLength = array.length;
-  for (let outerIndex = 0; outerIndex < arrayLength - 1; outerIndex++) {
-    let swapped = false;
-    for (
-      let innerIndex = 0;
-      innerIndex < arrayLength - outerIndex - 1;
-      innerIndex++
-    ) {
+  let swapped;
+  do {
+    swapped = false;
+    for (let innerIndex = 0; innerIndex < arrayLength; innerIndex++) {
       if (array[innerIndex] > array[innerIndex + 1]) {
-        // Swap array elements
-        [array[innerIndex], array[innerIndex + 1]] = [
-          array[innerIndex + 1],
-          array[innerIndex],
-        ];
+        // Swap elements
+        const temp = array[innerIndex];
+        array[innerIndex] = array[innerIndex + 1];
+        array[innerIndex + 1] = temp;
         swapped = true;
       }
     }
-    if (!swapped) break;
-  }
+  } while (swapped);
+
   return array;
 };
 
